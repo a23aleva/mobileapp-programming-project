@@ -4,23 +4,23 @@ package com.example.networking;
 public class Berry {
 
     private String name;
-    private String latin;
-    private String color;
+    private String company;
+    private String location;
 
-    private String genus;
+    private String category;
 
     public Berry() {
         this.name = "Saknar namn";
-        this.latin = "Saknar plats";
-        this.color = "Saknar färg";
-        this.genus = "Saknar släkte";
+        this.company = "Saknar plats";
+        this.location = "Saknar färg";
+        this.category = "Saknar släkte";
     }
 
-    public Berry(String name, String latin, String color, String genus) {
+    public Berry(String name, String company, String location, String category) {
         this.name = name;
-        this.latin = latin;
-        this.color = color;
-        this.genus = genus;
+        this.company = company;
+        this.location = location;
+        this.category = category;
     }
 
     public String getName() {
@@ -31,28 +31,28 @@ public class Berry {
         this.name = name;
     }
 
-    public String getLatin() {
-        return latin;
+    public String getCompany() {
+        return company;
     }
 
-    public void setLatin(String latin) {
-        this.latin = latin;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
-    public String getColor() {
-        return color;
+    public String getLocation() {
+        return location;
     }
 
-    public void setColor(int height) {
-        this.color = color;
+    public void setLocation(int height) {
+        this.location = location;
     }
 
-    public String getGenus() {
-        return genus;
+    public String getCategory() {
+        return category;
     }
 
-    public void setGenus(int height) {
-        this.genus = genus;
+    public void setCategory(int height) {
+        this.category = category;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.danieloskarsson.recyclerviewapp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private LayoutInflater layoutInflater;
     private OnClickListener onClickListener;
 
-    RecyclerViewAdapter(Context context, List<Berry> items, OnClickListener onClickListener) {
+    public RecyclerViewAdapter(Context context, List<Berry> items, OnClickListener onClickListener) {
         this.layoutInflater = LayoutInflater.from(context);
         this.items = items;
         this.onClickListener = onClickListener;
@@ -35,9 +36,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.title.setText(items.get(position).getName());
-        holder.title2.setText(items.get(position).getLatin());
-        holder.title3.setText(items.get(position).getColor());
-        holder.title4.setText(items.get(position).getGenus());
+        holder.title2.setText(items.get(position).getCompany());
+        holder.title3.setText(items.get(position).getLocation());
+        holder.title4.setText(items.get(position).getCategory());
     }
 
     @Override
@@ -64,6 +65,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public void onClick(View view) {
             onClickListener.onClick(items.get(getAdapterPosition()));
         }
+    }
+
+    public void updateData (List<Berry> newBerryList) {
+        Log.d("T", "TEST");
+        items.clear();
+        items.addAll(newBerryList);
+        notifyDataSetChanged();
     }
 
     public interface OnClickListener {

@@ -6,53 +6,43 @@ public class Berry {
     private String name;
     private String company;
     private String location;
-
     private String category;
+    private String auxdata;
 
     public Berry() {
         this.name = "Saknar namn";
         this.company = "Saknar plats";
         this.location = "Saknar färg";
         this.category = "Saknar släkte";
+        this.auxdata = "Saknar URL";
     }
 
-    public Berry(String name, String company, String location, String category) {
+    public Berry(String name, String company, String location, String category, String auxData) {
         this.name = name;
         this.company = company;
         this.location = location;
         this.category = category;
+        this.auxdata = auxData;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getCompany() {
         return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(int height) {
-        this.location = location;
-    }
-
     public String getCategory() {
         return category;
     }
 
-    public void setCategory(int height) {
-        this.category = category;
+    public String getAuxData() {
+        return auxdata;
     }
 
     @Override

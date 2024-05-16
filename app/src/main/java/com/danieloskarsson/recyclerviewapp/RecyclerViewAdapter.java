@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -14,17 +15,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.networking.Berry;
 import com.example.project.R;
+import com.squareup.picasso.Picasso;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private List<Berry> items;
     private LayoutInflater layoutInflater;
     private OnClickListener onClickListener;
+    private Context context;
 
     public RecyclerViewAdapter(Context context, List<Berry> items, OnClickListener onClickListener) {
         this.layoutInflater = LayoutInflater.from(context);
         this.items = items;
         this.onClickListener = onClickListener;
+        this.context = context;
     }
 
     @Override
@@ -39,6 +43,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.title2.setText(items.get(position).getCompany());
         holder.title3.setText(items.get(position).getLocation());
         holder.title4.setText(items.get(position).getCategory());
+        String imageUrl = items.get(position).getAuxData();
+        if (!imageUrl.isEmpty()) {
+            Picasso.with(this.context)
+                    .load(items.get(position).getAuxData())
+                    .into(holder.title5);
+        }
     }
 
     @Override
@@ -51,6 +61,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView title2;
         TextView title3;
         TextView title4;
+        ImageView title5;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -59,6 +70,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             title2 = itemView.findViewById(R.id.berryLatin);
             title3 = itemView.findViewById(R.id.berryColor);
             title4 = itemView.findViewById(R.id.berryGenus);
+            title5 = itemView.findViewById(R.id.ImageViewer);
         }
 
         @Override

@@ -37,6 +37,7 @@
         android:id="@+id/nextViewButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="About" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
